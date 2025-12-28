@@ -26,8 +26,12 @@ jobs:
         run: echo y | make
       - name: Load bashrc
         run: source ~/.bashrc
+      - name: Install zsh
+        run: |
+          set -e
+          apt update
+          apt install -y zsh
       - name: Load zshrc
-        shell: zsh {0}
-        run: source ~/.zshrc
+        run: zsh -c 'source ~/.zshrc'
       - name: Install gitconfig
         run: make gitconfig
