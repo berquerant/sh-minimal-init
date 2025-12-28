@@ -5,8 +5,8 @@ d="$(cd "$(dirname "$0")" || exit 1; pwd)"
 
 tmpd="$(mktemp -d)"
 
-GIT_USER_NAME="$(git config user.name)"
-GIT_USER_EMAIL="$(git config user.email)"
+GIT_USER_NAME="${GIT_USER_NAME:-$(git config user.name)}"
+GIT_USER_EMAIL="${GIT_USER_EMAIL:-$(git config user.email)}"
 export GIT_USER_NAME
 export GIT_USER_EMAIL
 
