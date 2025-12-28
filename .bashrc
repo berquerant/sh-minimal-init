@@ -24,11 +24,8 @@ alias e='${EDITOR_EMACS:-emacs}'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias pc='pbcopy'
-alias pp='pbpaste'
 alias watch='watch -cd'
 alias less='less -R'
-alias ldd='otool -L'
 alias history='history -t "%F %T"'
 alias l='ls -la'
 alias t='cat'
@@ -41,6 +38,11 @@ if which gdate >/dev/null 2>&1 ; then
 fi
 if which gsed >/dev/null 2>&1 ; then
     alias sed='gsed'
+fi
+if [ "$(uname)" = "Darwin" ] ; then
+    alias pc='pbcopy'
+    alias pp='pbpaste'
+    alias ldd='otool -L'
 fi
 
 #
