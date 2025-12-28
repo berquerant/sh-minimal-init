@@ -36,7 +36,6 @@ alias y='echo'
 alias v='vim'
 alias f='less'
 alias fn='less -N'
-alias svnlog='${SH_MINIMAL_INIT_ROOT}/svnlog.sh'
 if which gdate >/dev/null 2>&1 ; then
     alias date='gdate'
 fi
@@ -110,3 +109,9 @@ alias k='kubectl'
 alias kk='kubectl kustomize'
 alias kr='kubectl get --raw'
 alias kv='kubectl -v=8'
+
+#
+# subversion
+#
+alias svnlog='${SH_MINIMAL_INIT_ROOT}/svnlog.sh'
+alias svndiff='svn diff --diff-cmd ${SH_MINIMAL_INIT_ROOT}/svndiff.sh'
