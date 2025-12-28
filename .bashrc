@@ -99,7 +99,7 @@ dateseq() {
     then
         unit="$3"
     fi
-    seq 0 $(expr "$num" - 1) | xargs -I N date -d "${start} N ${unit}" "+${DATETIME_FORMAT}"
+    seq 0 $(expr "$num" - 1) | while read -r n ; do date -d "${start} ${n} ${unit}" "+${DATETIME_FORMAT}" ; done
 }
 
 #
