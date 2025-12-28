@@ -55,11 +55,6 @@ for df in "${dotfiles[@]}" ; do
         exec_or_dry "ln -snvf ${d}/${df} ${HOME}/"
     fi
 done
-if "$is_rm" ; then
-    exec_or_dry "rm -f ${HOME}/.subversion/config"
-else
-    exec_or_dry "ln -snvf ${d}/.subversion ${HOME}/.subversion/config"
-fi
 
 if "$is_rm" ; then
     message "Dotfiles removed!"
