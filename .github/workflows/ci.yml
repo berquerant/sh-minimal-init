@@ -27,7 +27,7 @@ jobs:
       - name: Load bashrc
         run: source ~/.bashrc
       - name: Load zshrc
-        shell: zsh
+        shell: zsh {0}
         run: source ~/.zshrc
       - name: Install gitconfig
         run: make gitconfig
