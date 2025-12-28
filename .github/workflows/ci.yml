@@ -1,0 +1,31 @@
+name: CI
+
+permissions: {}
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: "false"
+      - name: Install
+        run: echo y | make
+      - name: Load bashrc
+        run: source ~/.bashrc
+      - name: Load zshrc
+        shell: zsh
+        run: source ~/.zshrc
+      - name: Install gitconfig
+        run: make gitconfig
