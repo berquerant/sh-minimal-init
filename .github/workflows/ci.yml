@@ -28,3 +28,6 @@ jobs:
         run: source ~/.bashrc
       - name: Install gitconfig
         run: make gitconfig
+        env:
+          GIT_USER_NAME: example_user_name
+          GIT_USER_EMAIL: example_user_email
