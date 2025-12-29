@@ -2,6 +2,16 @@
 
 My minimal configuration of bash, zsh, git.
 
+- Modifies built-in settings.
+- No third-party packages installed.
+
+## Scope
+
+- bash
+- zsh
+- git
+- subversion
+
 ## Usage
 
 ``` shell
