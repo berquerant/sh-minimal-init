@@ -117,3 +117,14 @@ alias kv='kubectl -v=8'
 #
 alias svnlog='${SH_MINIMAL_INIT_ROOT}/svnlog.sh'
 alias svndiff='svn diff --diff-cmd ${SH_MINIMAL_INIT_ROOT}/svndiff.sh'
+
+#
+# tmux
+#
+alias tmux='tmux -2'
+alias tns='tmux new -s'
+alias tls='tmux ls'
+alias tlsc='tmux lsc'
+alias ta='tmux a -t'
+alias tks='tmux kill-session -t'
+alias tkill='tmux kill-server'

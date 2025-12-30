@@ -40,6 +40,7 @@ fi
 dotfiles=(
     .bashrc
     .zshrc
+    .tmux.conf
 )
 
 if "$is_rm" ; then

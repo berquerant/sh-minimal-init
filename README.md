@@ -11,6 +11,7 @@ My minimal configuration of bash, zsh, git.
 - zsh
 - git
 - subversion
+- tmux
 
 ## Usage
 
