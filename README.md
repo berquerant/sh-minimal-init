@@ -12,6 +12,7 @@ My minimal configuration of bash, zsh, git.
 - git
 - subversion
 - tmux
+- kubernetes
 
 ## Usage
 
