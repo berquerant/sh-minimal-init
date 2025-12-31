@@ -33,6 +33,7 @@ alias y='echo'
 alias v='vim'
 alias f='less'
 alias fn='less -N'
+alias j='tail -F'
 if which gdate >/dev/null 2>&1 ; then
     alias date='gdate'
 fi
