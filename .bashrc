@@ -61,6 +61,7 @@ alias m='g cm'
 alias mm='m -m'
 alias s='g s'
 alias gg='g g'
+alias p='g p'
 alias glogj='${SH_MINIMAL_INIT_ROOT}/git-log-json.sh'
 groot() {
     cd "$(git root)"
