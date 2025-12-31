@@ -128,3 +128,8 @@ alias tlsc='tmux lsc'
 alias ta='tmux a -t'
 alias tks='tmux kill-session -t'
 alias tkill='tmux kill-server'
+
+#
+# util
+#
+alias hurl='${SH_MINIMAL_INIT_ROOT}/hurl.sh'
