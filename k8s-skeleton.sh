@@ -3,15 +3,15 @@
 set -e
 
 usage() {
-    local -r name="${0##*/}"
+    local -r __name="${0##*/}"
     cat <<EOS >&2
-${name} -- create manifest skeleton
+${__name} -- create manifest skeleton
 
 Usage:
-  ${name} KIND
+  ${__name} KIND
 
 Example:
-  ${name} deploy
+  ${__name} deploy
 EOS
 }
 
