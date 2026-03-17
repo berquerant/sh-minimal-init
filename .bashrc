@@ -119,6 +119,7 @@ alias helm-compute-values='${SH_MINIMAL_INIT_ROOT}/k8s-helm-compute-values.sh'
 alias helm-dep-args='${SH_MINIMAL_INIT_ROOT}/k8s-helm-dep-args.sh'
 alias helmfile-args='${SH_MINIMAL_INIT_ROOT}/k8s-helmfile-args.sh'
 alias k8s-skeleton='${SH_MINIMAL_INIT_ROOT}/k8s-skeleton.sh'
+alias k8s-gcc='${SH_MINIMAL_INIT_ROOT}/k8s-grep-container-command.sh'
 kgetall() {
     kubectl get "$(kubectl api-resources --namespaced=true --verbs=list --output=name | xargs | tr ' ' ',')" "$@"
 }
