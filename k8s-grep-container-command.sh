@@ -18,10 +18,6 @@ case "$1" in
         usage
         exit
         ;;
-    "")
-        usage
-        exit 1
-        ;;
 esac
 
 extract() {
