@@ -118,6 +118,7 @@ alias kx='kubectl explain'
 alias krun='${SH_MINIMAL_INIT_ROOT}/k8s-run.sh'
 alias k8s-skeleton='${SH_MINIMAL_INIT_ROOT}/k8s-skeleton.sh'
 alias k8s-gcc='${SH_MINIMAL_INIT_ROOT}/k8s-grep-container-command.sh'
+alias hutil='${SH_MINIMAL_INIT_ROOT}/k8s-helm-util/k8s-helm-util.sh'
 kgetall() {
     kubectl get "$(kubectl api-resources --namespaced=true --verbs=list --output=name | xargs | tr ' ' ',')" "$@"
 }

@@ -1,0 +1,3 @@
+[submodule "k8s-helm-util"]
+	path = k8s-helm-util
+	url = https://github.com/berquerant/k8s-helm-util.git
