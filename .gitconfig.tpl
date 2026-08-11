@@ -15,6 +15,8 @@
   compactionHeuristic = true
 [difftool]
   prompt = false
+[difftool "dyff"]
+  cmd = dyff --color=on between --omit-header "$LOCAL" "$REMOTE"
 [core]
   excludesfile = ~/.gitignore
   ignorecase = false
@@ -82,3 +84,4 @@
   current-branch = "!git branch --contains | awk '$1==\"*\"{print $2}'"
   default-branch = "!git remote show origin | grep -F 'HEAD branch:' | cut -d ':' -f 2 | tr -d ' '"
   force-reset = !"f(){ if [ -z \"$1\" ]; then echo 'Usage: git force-reset BRANCH'; return 1; fi; git fetch && git reset --hard \"origin/$1\"; }; f"
+  dyff = difftool --tool=dyff
