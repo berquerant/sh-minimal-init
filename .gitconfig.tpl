@@ -83,5 +83,6 @@
   tag-neighbor = !"f(){ if [ -z \"$1\" ]; then echo 'Usage: git tag-next TAG'; return 1; fi; git tag-list | grep -E \"refs/tags/${1}$\" -C 1; }; f"
   current-branch = "!git branch --contains | awk '$1==\"*\"{print $2}'"
   default-branch = "!git remote show origin | grep -F 'HEAD branch:' | cut -d ':' -f 2 | tr -d ' '"
-  force-reset = !"f(){ if [ -z \"$1\" ]; then echo 'Usage: git force-reset BRANCH'; return 1; fi; git fetch && git reset --hard \"origin/$1\"; }; f"
+  reset-to-origin = !"f(){ target=\"${1:-$(git rev-parse --abbrev-ref HEAD)}\"; if [ -n \"$1\" ]; then git checkout \"$1\" || return 1; fi; git fetch origin && git reset --hard \"origin/${target}\"; }; f"
+  rebase-upstream-push = !"f(){ target=\"${1:-$(git rev-parse --abbrev-ref HEAD)}\"; default_b=\"$(git default-branch 2>/dev/null || echo 'main')\"; if [ -n \"$1\" ]; then git checkout \"$1\" || return 1; fi; git fetch origin && git rebase --autostash \"origin/${default_b}\" && git push origin \"${target}\" --force-with-lease --force-if-includes; }; f"
   dyff = difftool --tool=dyff
