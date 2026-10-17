@@ -73,7 +73,6 @@
   rename-branch = branch -m
   fix-comment = commit --amend
   which-branch = branch --contains
-  default-branch = !git remote show origin | grep -F 'HEAD branch:' | cut -d ':' -f 2 | tr -d ' '
   force-remove-untracked = clean -d -f
   clone-latest-only = clone --depth 1
   tag-push = !"f(){ if [ -z \"$1\" ]; then echo 'Usage: git tag-push TAG'; return 1; fi; git tag \"$1\" && git push origin \"$1\"; }; f"
@@ -82,7 +81,7 @@
   tag-list = tag -l --sort=creatordate --format='%(creatordate:unix) %(creatordate:iso-strict) %(refname)'
   tag-neighbor = !"f(){ if [ -z \"$1\" ]; then echo 'Usage: git tag-next TAG'; return 1; fi; git tag-list | grep -E \"refs/tags/${1}$\" -C 1; }; f"
   current-branch = "!git branch --contains | awk '$1==\"*\"{print $2}'"
-  default-branch = "!git remote show origin | grep -F 'HEAD branch:' | cut -d ':' -f 2 | tr -d ' '"
+  default-branch = !"f(){ basename \"$(git symbolic-ref refs/remotes/origin/HEAD)\"; }; f"
   reset-to-origin = !"f(){ target=\"${1:-$(git rev-parse --abbrev-ref HEAD)}\"; if [ -n \"$1\" ]; then git checkout \"$1\" || return 1; fi; git fetch origin && git reset --hard \"origin/${target}\"; }; f"
   rebase-upstream-push = !"f(){ target=\"${1:-$(git rev-parse --abbrev-ref HEAD)}\"; default_b=\"$(git default-branch 2>/dev/null || echo 'main')\"; if [ -n \"$1\" ]; then git checkout \"$1\" || return 1; fi; git fetch origin && git rebase --autostash \"origin/${default_b}\" && git push origin \"${target}\" --force-with-lease --force-if-includes; }; f"
   dyff = difftool --tool=dyff
