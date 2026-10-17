@@ -84,4 +84,5 @@
   default-branch = !"f(){ basename \"$(git symbolic-ref refs/remotes/origin/HEAD)\"; }; f"
   reset-to-origin = !"f(){ target=\"${1:-$(git rev-parse --abbrev-ref HEAD)}\"; if [ -n \"$1\" ]; then git checkout \"$1\" || return 1; fi; git fetch origin && git reset --hard \"origin/${target}\"; }; f"
   rebase-upstream-push = !"f(){ target=\"${1:-$(git rev-parse --abbrev-ref HEAD)}\"; default_b=\"$(git default-branch 2>/dev/null || echo 'main')\"; if [ -n \"$1\" ]; then git checkout \"$1\" || return 1; fi; git fetch origin && git rebase --autostash \"origin/${default_b}\" && git push origin \"${target}\" --force-with-lease --force-if-includes; }; f"
+  is-merged = !"f(){ branch=\"${1:-$(git rev-parse --abbrev-ref HEAD)}\"; target=\"${2:-$(git default-branch 2>/dev/null || echo 'main')}\"; git merge-base --is-ancestor \"$branch\" \"$target\" 2>/dev/null && return 0; target_tree=\"$(git rev-parse \"${target}^{tree}\" 2>/dev/null)\" || return 1; merged_tree=\"$(git merge-tree --write-tree \"$target\" \"$branch\" 2>/dev/null)\" || return 1; [ \"$target_tree\" = \"$merged_tree\" ]; }; f"
   dyff = difftool --tool=dyff
