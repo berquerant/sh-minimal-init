@@ -65,10 +65,10 @@ alias gg='g g'
 alias p='g p'
 alias glogj='${SH_MINIMAL_INIT_ROOT}/git-log-json.sh'
 groot() {
-  cd "$(git root)"
+  cd "$(git root)" || return 1
 }
 gcommon() {
-  cd "$(dirname "$(git rev-parse --git-common-dir)")"
+  cd "$(dirname "$(git rev-parse --git-common-dir)")" || return 1
 }
 
 #
