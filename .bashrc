@@ -34,16 +34,16 @@ alias v='vim'
 alias f='less'
 alias fn='less -N'
 alias j='tail -F'
-if which gdate >/dev/null 2>&1 ; then
-    alias date='gdate'
+if which gdate >/dev/null 2>&1; then
+  alias date='gdate'
 fi
-if which gsed >/dev/null 2>&1 ; then
-    alias sed='gsed'
+if which gsed >/dev/null 2>&1; then
+  alias sed='gsed'
 fi
-if [ "$(uname)" = "Darwin" ] ; then
-    alias pc='pbcopy'
-    alias pp='pbpaste'
-    alias ldd='otool -L'
+if [ "$(uname)" = "Darwin" ]; then
+  alias pc='pbcopy'
+  alias pp='pbpaste'
+  alias ldd='otool -L'
 fi
 
 #
@@ -65,7 +65,7 @@ alias gg='g g'
 alias p='g p'
 alias glogj='${SH_MINIMAL_INIT_ROOT}/git-log-json.sh'
 groot() {
-    cd "$(git root)"
+  cd "$(git root)"
 }
 gcommon() {
   cd "$(dirname "$(git rev-parse --git-common-dir)")"
@@ -78,36 +78,33 @@ export DATETIME_FORMAT="%Y-%m-%d %H:%M:%S"
 # print datetime as human readable format
 # datetime [TIMESTAMP]
 datetime() {
-    if [ $# -eq 0 ]
-    then
-        date "+$DATETIME_FORMAT"
-    else
-        date -d "@$1" "+$DATETIME_FORMAT"
-    fi
+  if [ $# -eq 0 ]; then
+    date "+$DATETIME_FORMAT"
+  else
+    date -d "@$1" "+$DATETIME_FORMAT"
+  fi
 }
 
 # print timestamp
 # timestamp [DATETIME]
 timestamp() {
-    if [ $# -eq 0 ]
-    then
-        date +%s
-    else
-        date -d "$1" +%s
-    fi
+  if [ $# -eq 0 ]; then
+    date +%s
+  else
+    date -d "$1" +%s
+  fi
 }
 
 # print datetime sequence
 # dateseq START_DATETIME N UNIT
 dateseq() {
-    local -r num="${1:-3}"
-    local -r start="${2:-$(datetime)}"
-    local unit="day"
-    if [ $# -ge 3 ]
-    then
-        unit="$3"
-    fi
-    seq 0 $(expr "$num" - 1) | while read -r n ; do date -d "${start} ${n} ${unit}" "+${DATETIME_FORMAT}" ; done
+  local -r num="${1:-3}"
+  local -r start="${2:-$(datetime)}"
+  local unit="day"
+  if [ $# -ge 3 ]; then
+    unit="$3"
+  fi
+  seq 0 $(expr "$num" - 1) | while read -r n; do date -d "${start} ${n} ${unit}" "+${DATETIME_FORMAT}"; done
 }
 
 #
@@ -123,7 +120,7 @@ alias k8s-skeleton='${SH_MINIMAL_INIT_ROOT}/k8s-skeleton.sh'
 alias k8s-gcc='${SH_MINIMAL_INIT_ROOT}/k8s-grep-container-command.sh'
 alias hutil='${SH_MINIMAL_INIT_ROOT}/k8s-helm-util/k8s-helm-util.sh'
 kgetall() {
-    kubectl get "$(kubectl api-resources --namespaced=true --verbs=list --output=name | xargs | tr ' ' ',')" "$@"
+  kubectl get "$(kubectl api-resources --namespaced=true --verbs=list --output=name | xargs | tr ' ' ',')" "$@"
 }
 
 #

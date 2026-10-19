@@ -4,8 +4,8 @@ set -e
 set -o pipefail
 
 usage() {
-    local -r name="${0##*/}"
-    cat <<EOS >&2
+  local -r name="${0##*/}"
+  cat <<EOS >&2
 ${name} -- grep container commands
 
 Usage:
@@ -14,14 +14,14 @@ EOS
 }
 
 case "$1" in
-    "-h" | "--help")
-        usage
-        exit
-        ;;
+"-h" | "--help")
+  usage
+  exit
+  ;;
 esac
 
 extract() {
-    yq '
+  yq '
 .metadata.name as $name
 | .kind as $kind
 | (.metadata.namespace // "") as $namespace
@@ -36,9 +36,9 @@ extract() {
 
 readonly keyword="$1"
 
-if [[ -z "$keyword" ]] ; then
-    extract
-    exit
+if [[ -z "$keyword" ]]; then
+  extract
+  exit
 fi
 
 readonly __expr="select((.command | join(\" \") | test(\"${keyword}\")))"
