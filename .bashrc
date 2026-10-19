@@ -67,6 +67,9 @@ alias glogj='${SH_MINIMAL_INIT_ROOT}/git-log-json.sh'
 groot() {
     cd "$(git root)"
 }
+gcommon() {
+  cd "$(dirname "$(git rev-parse --git-common-dir)")"
+}
 
 #
 # time
