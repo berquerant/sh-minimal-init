@@ -31,3 +31,8 @@ jobs:
         env:
           GIT_USER_NAME: example_user_name
           GIT_USER_EMAIL: example_user_email
+
+  actions-lock-verify:
+    permissions:
+      contents: read
+    uses: berquerant/reusable-workflows/.github/workflows/actions-lock-verify.yml@v0.1.0
